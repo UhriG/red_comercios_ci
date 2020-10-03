@@ -17,18 +17,19 @@
 						<label for="exampleInputEmail1">Email</label>
 						<input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 						<small id="emailHelp" class="form-text text-muted">Ingrese su email ejemplo@email.com</small>
-						<div class="invalid-feedback">
-							
-						</div>
+						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group" id="password">
 						<label for="exampleInputPassword1">Contraseña</label>
 						<input type="password" name="password" class="form-control" id="exampleInputPassword1">
-						<div class="invalid-feedback">
-							
-						</div>
+						<div class="invalid-feedback"></div>
 					</div>
+					<div class="form-group">
 					<button type="submit" class="btn btn-primary">Ingresar</button>
+					</div>
+					<div class="form-group" id="alert">
+						
+					</div>					
 				</form>
 			</div>			
 		</div>	

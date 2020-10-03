@@ -16,6 +16,8 @@ class Users extends CI_Model{
 			'password' => $datos['password'],
 			'qr' => 0,
 			'puntos' => 0,
+			'perfil' => 0,
+			'estado' => 0,
 		);
 
 		if(!$this->db->insert('usuarios', $datos)){

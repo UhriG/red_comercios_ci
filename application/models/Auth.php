@@ -10,6 +10,6 @@ class Auth extends CI_Model{
 		if(!$query->result()){
 			return false;
 		}
-		return $query->result();
+		return $query->row();
 	}
 }

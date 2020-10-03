@@ -86,7 +86,7 @@ class Register extends CI_Controller {
 			array(
 				'field' => 'password_c',
 				'label' => 'confirmación de contraseña',
-				'rules' => 'required|matches[create_password]',
+				'rules' => 'required|matches[password]',
 				'errors' => array(
 					'matches' => 'La %s no es igual a la contraseña',
 				),
