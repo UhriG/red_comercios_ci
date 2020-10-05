@@ -4,9 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Users extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('ModelsUsers');
 	}
-	public function create (){
-		$vista = $this->load->view('admin/create_user','',TRUE);
+	public function index (){
+		$data = $this->ModelsUsers->getUsers();
+		$vista = $this->load->view('admin/show_users',array('data' => $data),TRUE);
+		$this->getTemplate($vista);
+	}
+	public function view (){
+		$data = $this->ModelsUsers->getUsers();
+		$vista = $this->load->view('admin/show_users',array('data' => $data),TRUE);
 		$this->getTemplate($vista);
 	}
 	public function getTemplate($view){
@@ -21,3 +28,4 @@ class Users extends CI_Controller {
 		$this->load->view('dashboard',$data);
 	}
 }
+
