@@ -6,9 +6,8 @@ class Register extends CI_Controller {
     public function __construct(){
 		parent::__construct();
         $this->load->helper(array('getMenu'));
-		$this->load->model('Users');
-		
-		$this->load->library('form_validation');
+		$this->load->model('Users');		
+		$this->load->library(array('form_validation','email'));
 	}
 
 	public function index(){
@@ -30,19 +29,17 @@ class Register extends CI_Controller {
 			array(
 					'field' => 'firstname',
 					'label' => 'Nombre',
-					'rules' => 'required|alpha',
+					'rules' => 'required',
 					'errors' => array(
 						'required' => 'El campo %s no puede ir vacío',
-						'alpha' => 'Ingrese un %s válido, solo se admiten letras',
 					),
 				),
 			array(
 					'field' => 'lastname',
 					'label' => 'Apellido',
-					'rules' => 'required|alpha',
+					'rules' => 'required',
 					'errors' => array(
-						'required' => 'El campo %s no puede ir vacío',
-						'alpha' => 'Ingrese un %s válido, solo se admiten letras',					
+						'required' => 'El campo %s no puede ir vacío',				
 					),
 				),
 			array(
@@ -116,8 +113,21 @@ class Register extends CI_Controller {
 				$data['msg'] = 'Ocurrio un error al ingresar los datos, intente nuevamente';
 				$this->load->view('register', $data);
 			}
+			$this->sendEmail($datos);
 			$data['msg'] = 'Registrado correctamente';
 			$this->load->view('register', $data);
 		}		
-    }
+	}
+	public function sendEmail($datos){
+		$this->email->from('registro@reddecomercios.com', 'Red de comercios');
+		$this->email->to($datos['email']);
+
+		/*$this->email->cc('another@another-example.com');
+		$this->email->bcc('them@their-example.com');*/
+
+		$this->email->subject('Datos de cuenta');
+		$this->email->message('Testing the email class.');
+
+		$this->email->send();
+	}
 }
