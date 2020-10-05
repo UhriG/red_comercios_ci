@@ -126,7 +126,8 @@ class Register extends CI_Controller {
 		$this->email->bcc('them@their-example.com');*/
 
 		$this->email->subject('Datos de cuenta');
-		$this->email->message('Testing the email class.');
+		$vista = $this->load->view('emails/welcome',$datos,TRUE);
+		$this->email->message($vista);
 
 		$this->email->send();
 	}

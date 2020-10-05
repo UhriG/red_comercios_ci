@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Title</title>
+    <title>Bienvenido</title>
     <style>
       .wrapper {
   width: 100%; }
@@ -1372,6 +1372,32 @@ body.outlook p {
         border-top: 8px solid #663399;
       }
     </style>
+		<style>
+			.myButton {
+				box-shadow:inset 0px 1px 0px 0px #54a3f7;
+				background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+				background-color:#007dc1;
+				border-radius:3px;
+				border:1px solid #124d77;
+				display:inline-block;
+				cursor:pointer;
+				color:#ffffff;
+				font-family:Arial;
+				font-size:27px;
+				padding:12px 24px;
+				text-decoration:none;
+				text-shadow:0px 1px 0px #154682;
+			}
+			.myButton:hover {
+				background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+				background-color:#0061a7;
+				color: #ffffff;
+			}
+			.myButton:active {
+				position:relative;
+				top:1px;
+			}
+		</style>
   </head>
 
   <body>
@@ -1398,23 +1424,7 @@ body.outlook p {
                             <table>
                               <tr>
                                 <th>
-                                  <h1 class="text-center">Welcome to Kraken Academy</h1>
-                                  <center data-parsed="">
-                                    <table align="center" class="menu text-center float-center">
-                                      <tr>
-                                        <td>
-                                          <table>
-                                            <tr>
-                                              <th class="menu-item float-center"><a href="#">About</a></th>
-                                              <th class="menu-item float-center"><a href="#">Course List</a></th>
-                                              <th class="menu-item float-center"><a href="#">Campus Map</a></th>
-                                              <th class="menu-item float-center"><a href="#">Contact</a></th>
-                                            </tr>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </table>
-                                  </center>
+                                  <h1 class="text-center"><?=$nombre?>, bienvenido a la red de comercios!</h1>
                                 </th>
                                 <th class="expander"></th>
                               </tr>
@@ -1445,7 +1455,7 @@ body.outlook p {
                                       </tr>
                                     </tbody>
                                   </table>
-                                  <center data-parsed=""> <img src="http://placehold.it/200x200" align="center" class="float-center"> </center>
+                                  <center data-parsed=""> <img src="<?=base_url('assets/img/qr.png')?>" align="center" class="float-center"> </center>
                                   <table class="spacer">
                                     <tbody>
                                       <tr>
@@ -1453,18 +1463,49 @@ body.outlook p {
                                       </tr>
                                     </tbody>
                                   </table>
-                                  <h4>An exciting future of terrorizing sailors awaits you at Kraken Academy.</h4>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque culpa vel architecto, perspiciatis eius cum autem quidem, sunt consequuntur, impedit dolor vitae illum nobis sint nihil aliquid? Assumenda, amet, officia.</p>
+                                  <h4>El código QR será tu identificador personal, te recomendamos guardarlo y tenerlo siempre a mano.</h4>
+                                  <h6>Utiliza las siguientes credenciales para ingresar al sistema:</h6>
+																	<p>Email: <strong><?=$email?></strong></p>
+																	<p>Contraseña: <strong><?=$password?></strong></p><br>
+																	<p>Resguarda estos datos ya que son instransferibles.</p>
+																	<br>
+																	<table class="row">
+																		<tbody>
+																			<tr>
+																				<column>
+																					<table class="button expanded">
+																						<tbody>
+																							<tr>
+																								<td>
+																									<table>
+																										<tbody>
+																											<tr>
+																												<td>
+																													<center><a href="<?=base_url('login')?>" align="center" class="float-center">VER PUNTOS DISPONIBLES</a></center>
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</td>
+																								<td class="expander"></td>
+																							</tr>
+																						</tbody>
+																					</table>																					
+																				</column>
+																			</tr>
+																		</tbody>
+																	</table>&zwj;																	
+																	<br>
                                   <center data-parsed="">
                                     <table align="center" class="menu float-center">
                                       <tr>
                                         <td>
                                           <table>
                                             <tr>
-                                              <th class="menu-item float-center"><a href="#">krakenacademy.com</a></th>
+                                              <th class="menu-item float-center"><a href="#">dondecompro.com</a></th>
                                               <th class="menu-item float-center"><a href="#">Facebook</a></th>
-                                              <th class="menu-item float-center"><a href="#">Twitter</a></th>
-                                              <th class="menu-item float-center"><a href="#">(408)-555-0123</a></th>
+                                              <th class="menu-item float-center"><a href="#">Instagram</a></th>
+                                              <th class="menu-item float-center"><a href="#">WhatsApp</a></th>
                                             </tr>
                                           </table>
                                         </td>
