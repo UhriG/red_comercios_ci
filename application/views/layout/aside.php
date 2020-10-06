@@ -1,33 +1,3 @@
- <!-- ASIDE 
- <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <style>
-                .sidebar-sticky{
-                    position: -webkit-sticky;
-                    position: sticky;
-                    top: 78px;
-                    height: calc(100vh - 78px);
-                    padding-top: .5rem;
-                    overflow-x: hidden;
-                    overflow-y: auto;
-                }
-            </style>
-            <div class="sidebar-sticky" style="margin-top: 1em;">
-                 FLASHDATA 
-                <?php if($dat = $this->session->flashdata('msg')): ?>
-                    <div class="alert alert-primary" role="alert">
-                        <?=$dat?>
-                    </div>
-                <?php endif; ?> 
-                <div class="nav flex-column nav-pills"  aria-orientation="vertical">
-				<a href="<?=base_url('users')?>" class="nav-link <?= $this->uri->segment(2) == '' ? 'active' : ''; ?>"  >Dashboard</a>
-                <a href="<?=base_url('users/info')?>" class="nav-link <?= $this->uri->segment(2) == 'info' ? 'active' : ''; ?>" ">Mi perfil</a>
-                <a href="<?=base_url('users/list')?>" class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>" ">Usuarios</a>
-				<a href="<?=base_url('users/admin')?>" class="nav-link <?= $this->uri->segment(2) == 'admin'  ? 'active' : ''; ?>" ">Admin</a>
-                </div>
-            </div>
-
-        </nav>-->
-		
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
