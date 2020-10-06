@@ -19,8 +19,10 @@
                     </div>
                 <?php endif; ?> 
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a href="<?=base_url('users')?>" class="nav-link <?= $this->uri->segment(2) == '' ? 'active' : ''; ?>"  data-toggle="pill">Usuarios</a>
-                <a href="<?=base_url('users/view')?>" class="nav-link <?= $this->uri->segment(2) == 'view' || $this->uri->segment(2) == 'store' ? 'active' : ''; ?>" data-toggle="pill">Alta Medico</a>
+				<a href="<?=base_url('users')?>" class="nav-link <?= $this->uri->segment(2) == '' ? 'active' : ''; ?>"  data-toggle="pill">Dashboard</a>
+                <a href="<?=base_url('users/info')?>" class="nav-link <?= $this->uri->segment(2) == 'info' ? 'active' : ''; ?>"  data-toggle="pill">Mi perfil</a>
+                <a href="<?=base_url('users/list')?>" class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>" data-toggle="pill">Usuarios</a>
+				<a href="<?=base_url('users/admin')?>" class="nav-link <?= $this->uri->segment(2) == 'admin'  ? 'active' : ''; ?>" data-toggle="pill">Admin</a>
                 </div>
             </div>
 

@@ -5,7 +5,7 @@ class Login extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->library(array('form_validation','session'));
+		$this->load->library(array('form_validation'));
 		$this->load->helper(array('auth/login_rules'));
 		$this->load->model('Auth');
 	}
@@ -26,8 +26,8 @@ class Login extends CI_Controller {
 			echo json_encode($errors);
 			$this->output->set_status_header(400);
 		}else{
-			$email =  $this->input->post('email');
-			$pass =  $this->input->post('password');
+			$email = $this->input->post('email');
+			$pass = $this->input->post('password');
 			if(!$res = $this->Auth->login($email, $pass)){
 				echo json_encode(array('msg' => 'Verifique sus credenciales'));
 				$this->output->set_status_header(401);
@@ -37,17 +37,23 @@ class Login extends CI_Controller {
 				'id' => $res->id,
 				'nombre' => $res->nombre,
 				'apellido' => $res->apellido,
+				'puntos' => $res->puntos,
+				'telefono' => $res->telefono,
+				'email' => $res->email,
+				'dni' => $res->dni,
 				'estado' => $res->estado,
-				'perfil' => $res->perfil,
-				'is_logged' => TRUE,
+				'perfil' => $res->perfil,	
+				'qr' =>	$res->qr,		
+				'is_logged' => TRUE
 			);
 			$this->session->set_userdata($data);
 			$this->session->set_flashdata('msg','Bienvenido al sistema '.$data['nombre'].' '.$data['apellido']);
+			
 			echo json_encode(array("url" => base_url('dashboard')));
 		}
 	}
 	public function logout(){
-		$data = array('id','nombre','apellido','estado','perfil','is_logged');
+		$data = array('id','nombre','apellido','telefono','email','dni','estado','perfil','puntos','qr','is_logged');
 		$this->session->unset_userdata($data);
 		$this->session->sess_destroy();
 

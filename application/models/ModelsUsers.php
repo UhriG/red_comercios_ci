@@ -7,4 +7,8 @@ class ModelsUsers extends CI_Model{
 		$sql = $this->db->get('usuarios');
 		return $sql->result();
 	}
+
+	public function userInfo(){
+		$sql; 
+	}
 }

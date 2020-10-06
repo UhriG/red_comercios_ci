@@ -10,12 +10,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#"><strong>Rango:</strong> <?= $this->session->rango ?></a>
-                </li>
-                <li class="nav-item divider">
-                    <a class="nav-link disabled" href="#"><strong>Nombre de Usuario:</strong> <?php echo $this->session->nombre_usuario ?></a>
+            <ul class="navbar-nav">                
+                <li class="nav-item ">
+                    <a class="nav-link disabled" href="#"><strong>Nombre:</strong> <?php echo $this->session->nombre ?> <?php echo $this->session->apellido ?></a>
                 </li>
                 <li class="nav-item" style="margin-left: 2em;">
                     <!-- <button class="btn btn-warning" type="submit" id="logout">Cerrar Sesión</button> -->

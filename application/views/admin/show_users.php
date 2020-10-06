@@ -17,11 +17,11 @@
     <tr>
       <th scope="row"><?= $item->id ?></th>
       <td><?= $item->nombre ?></td>
-	  <td><?= $item->apellido?></td>
-	  <td><?= $item->dni ?></td>
-	  <td><?= $item->telefono ?></td>
-	  <td><?= $item->puntos ?></td>
-	  <td>acciones</td>
+			<td><?= $item->apellido?></td>
+			<td><?= $item->dni ?></td>
+			<td><?= $item->telefono ?></td>
+			<td><?= $item->puntos ?></td>
+			<td>acciones</td>
     </tr>   
 	<?php endforeach; ?>
   </tbody>

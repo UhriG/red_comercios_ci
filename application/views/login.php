@@ -1,3 +1,8 @@
+<?php
+if($this->session->userdata('is_logged')){
+	redirect('dashboard');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
