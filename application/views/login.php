@@ -40,6 +40,6 @@ if($this->session->userdata('is_logged')){
 		</div>	
 	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="<?=base_url('assets/js/auth/login.js')?>"></script>
+<script src="<?=base_url('assets/dist/js/auth/login.js')?>"></script>
 </body>
 </html>
