@@ -1833,7 +1833,7 @@
                                                                 <h6>Utiliza las siguientes credenciales para ingresar al
                                                                     sistema:</h6>
                                                                 <p>Email: <strong><?=$email?></strong></p>
-                                                                <p>Contraseña: <strong><?=$password?></strong></p><br>
+                                                                <p>Contraseña: <strong><?=$pass?></strong></p><br>
                                                                 <p>Resguarda estos datos ya que son instransferibles.
                                                                 </p>
                                                                 <br>

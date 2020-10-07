@@ -20,7 +20,7 @@ class Register extends CI_Controller {
         $dni = $this->input->post('dni');
         $email = $this->input->post('email');
 		$telefono = $this->input->post('tel');
-		$password = $this->input->post('password');
+		$password = $this->input->post('password');		
 		$password_c = $this->input->post('password_c');
 
 		$config = array(
@@ -88,7 +88,9 @@ class Register extends CI_Controller {
 			),
 		);
 		
-		
+		///Encriptamos la contrsaeña
+		$password_segura = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
+
 		$this->form_validation->set_rules($config);
 
 		if ($this->form_validation->run() == FALSE){
@@ -101,7 +103,8 @@ class Register extends CI_Controller {
 				'dni' => $dni,
 				'email' => $email,
 				'telefono' => $telefono,
-				'password' => $password
+				'password' => $password_segura,
+				'pass' => $password
 			);	
 			
 			///Genero el código QR y retorno la ruta de la imagen
@@ -115,6 +118,7 @@ class Register extends CI_Controller {
 				$this->load->view('register', $data);
 			}
 			
+			///Envio el email con los datos de login y la imagen qr
 			$this->sendEmail($datos);
 			$data['msg'] = 'Registrado correctamente';
 			$this->load->view('register', $data);

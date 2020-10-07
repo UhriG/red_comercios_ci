@@ -6,10 +6,23 @@ class Auth extends CI_Model{
 	}
 
 	public function login($email, $password){
-		$query = $this->db->get_where('usuarios', array('email' => $email, 'password' => $password), 1);
+		//Hago una consulta en la BD segun el mail ingresado en el login
+		$query = $this->db->get_where('usuarios', array('email' => $email), 1);
+
+		//Verifico que la consulta devuelva algo
 		if(!$query->result()){
 			return false;
 		}
-		return $query->row();
+
+		//Traigo los datos de esa fila
+		$row = $query->row();
+		
+		//Verifico si la contraseña ingresada coincide con el hash guardado en la BD
+		$verify = password_verify($password,$row->password);
+
+		if($verify){
+			return $query->row();	
+		}
+		
 	}
 }
