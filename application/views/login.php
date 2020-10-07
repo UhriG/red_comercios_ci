@@ -3,43 +3,99 @@ if($this->session->userdata('is_logged')){
 	redirect('dashboard');
 }
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<title>Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?=base_url('assets/');?>plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="<?=base_url('assets/');?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="<?=base_url('assets/');?>dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body>
-	<h1>Login</h1>
-	
-	<div class="container">
-		<div class="row justify-content-lg-center">
-			<div class="col-lg-6">
-				<form action="<?= base_url('login/validate'); ?>" method="POST" id="frm_login">
-					<div class="form-group" id="email">
-						<label for="exampleInputEmail1">Email</label>
-						<input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-						<small id="emailHelp" class="form-text text-muted">Ingrese su email ejemplo@email.com</small>
-						<div class="invalid-feedback"></div>
-					</div>
-					<div class="form-group" id="password">
-						<label for="exampleInputPassword1">Contraseña</label>
-						<input type="password" name="password" class="form-control" id="exampleInputPassword1">
-						<div class="invalid-feedback"></div>
-					</div>
-					<div class="form-group">
-					<button type="submit" class="btn btn-primary">Ingresar</button>
-					</div>
-					<div class="form-group" id="alert">
-						
-					</div>					
-				</form>
-			</div>			
-		</div>	
-	</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="<?=base_url('assets/dist/js/auth/login.js')?>"></script>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="<?=base_url('assets/');?>index2.html"><b>Admin</b>LTE</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Ingresa tus credenciales para inicar sesión</p>
+
+                <form action="<?= base_url('login/validate'); ?>" method="POST" id="frm_login">
+                    <div class="input-group mb-3" id="email">
+                        <input type="email" name="email" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="input-group mb-3" id="password">
+                        <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">
+                                    Recordarme
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <div class="form-group" id="alert">
+
+                    </div>
+                </form>
+
+                <p class="mb-1">
+                    <a href="forgot-password.html">Olvidé mi clave</a>
+                </p>
+                <p class="mb-0">
+                    <a href="<?=base_url('register');?>" class="text-center">Registrarme</a>
+                </p>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+
+    <!-- jQuery -->
+    <script src="<?=base_url('assets/');?>plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="<?=base_url('assets/');?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="<?=base_url('assets/');?>dist/js/adminlte.min.js"></script>
+
+    <script src="<?=base_url('assets/dist/js/auth/login.js')?>"></script>
+
 </body>
+
 </html>

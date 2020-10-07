@@ -44,7 +44,7 @@
                     <input type="text" name="lastname" value="" class="form-control" placeholder="Apellido">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
+                            <span class="fas fa-user"></span>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                     <input type="text" name="dni" value="" class="form-control" placeholder="DNI">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
+                            <span class="fas fa-id-card"></span>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <input type="tel" name="tel" value="" class="form-control" placeholder="Teléfono">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
+                            <span class="fas fa-phone-alt"></span>
                         </div>
                     </div>
                 </div>
