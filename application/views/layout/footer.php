@@ -1,16 +1,16 @@
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.5
+        <b>Version</b> 3.0.5
     </div>
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
     reserved.
-  </footer>
+</footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -29,4 +29,5 @@
 <script src="<?= base_url()."assets/"; ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="<?=base_url('assets/dist/js/dataTables.js')?>"></script>
 </body>
+
 </html>
