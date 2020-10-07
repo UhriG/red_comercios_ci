@@ -16,7 +16,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"> <?php echo $this->session->nombre ?>
+                <a href="<?=base_url('users/info')?>" class="d-block"> <?php echo $this->session->nombre ?>
                     <?php echo $this->session->apellido ?></a>
             </div>
         </div>
