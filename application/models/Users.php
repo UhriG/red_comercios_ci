@@ -14,7 +14,7 @@ class Users extends CI_Model{
 			'email' => $datos['email'],
 			'telefono' => $datos['telefono'],
 			'password' => $datos['password'],
-			'qr' => 0,
+			'qr' => $datos['qr'],
 			'puntos' => 0,
 			'perfil' => 0,
 			'estado' => 0,

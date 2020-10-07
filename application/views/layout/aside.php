@@ -26,48 +26,37 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+
+                <li class="nav-item">
+                    <a href="<?=base_url()?>" class="nav-link <?= $this->uri->segment(2) == '' ? 'active' : ''; ?>"
+                        class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+                        <p>Escritorio</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?=base_url()?>"
-                                class="nav-link <?= $this->uri->segment(2) == '' ? 'active' : ''; ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?=base_url('users/info')?>"
-                                class="nav-link <?= $this->uri->segment(2) == 'info' ? 'active' : ''; ?>"
-                                class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Perfil</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?=base_url('users/list')?>"
-                                class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>"
-                                class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Clientes</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?=base_url('users/admin')?>"
-                                class="nav-link <?= $this->uri->segment(2) == 'admin'  ? 'active' : ''; ?>"
-                                class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Admin</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="<?=base_url('users/info')?>"
+                        class="nav-link <?= $this->uri->segment(2) == 'info' ? 'active' : ''; ?>" class="nav-link">
+                        <i class="fas fa-user nav-icon"></i>
+                        <p>Perfil</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?=base_url('users/list')?>"
+                        class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>" class="nav-link">
+                        <i class="fas fa-users nav-icon"></i>
+                        <p>Clientes</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?=base_url('users/admin')?>"
+                        class="nav-link <?= $this->uri->segment(2) == 'admin'  ? 'active' : ''; ?>" class="nav-link">
+                        <i class="fas fa-user-cog nav-icon"></i>
+                        <p>Admin</p>
+                    </a>
+                </li>
+
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

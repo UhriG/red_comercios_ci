@@ -5,14 +5,12 @@ class Register extends CI_Controller {
 
     public function __construct(){
 		parent::__construct();
-        $this->load->helper(array('getMenu'));
 		$this->load->model('Users');		
-		$this->load->library(array('form_validation','email'));
+		$this->load->library(array('form_validation','email','ciqrcode'));
 	}
 
-	public function index(){
-        $data['menu'] = main_menu();
-        $this->load->view('register', $data);
+	public function index(){        
+        $this->load->view('register');
         $query = $this->db->get('usuarios');
     }
     
@@ -94,8 +92,7 @@ class Register extends CI_Controller {
 		$this->form_validation->set_rules($config);
 
 		if ($this->form_validation->run() == FALSE){
-			$data['menu'] = main_menu();
-			$this->load->view('register',$data);
+			$this->load->view('register');
 		}
 		else{
 			$datos = array(
@@ -105,25 +102,42 @@ class Register extends CI_Controller {
 				'email' => $email,
 				'telefono' => $telefono,
 				'password' => $password
-			);
-	
-			$data['menu'] = main_menu();
-	
+			);	
+			
+			///Genero el código QR y retorno la ruta de la imagen
+			$qr = $this->generateQR($datos['dni']);
+			$qr = str_replace('\\', '/', $qr);
+			///Agrego al array de datos el codigo qr para ser guardado en la base de datos
+			$datos = array_merge($datos, array('qr'=>$qr));
+						
 			if(!$this->Users->create($datos)){
 				$data['msg'] = 'Ocurrio un error al ingresar los datos, intente nuevamente';
 				$this->load->view('register', $data);
 			}
+			
 			$this->sendEmail($datos);
 			$data['msg'] = 'Registrado correctamente';
 			$this->load->view('register', $data);
 		}		
 	}
+
+	public function generateQR($dni){
+		$params['data'] = $dni;
+		$params['level'] = 'H';
+		$params['size'] = 10;
+		$params['savename'] = FCPATH."assets/dist/img/qr/qr_dni_$dni.png";
+		$url = base_url('assets/dist/img/qr/qr_dni_'.$dni.'.png');
+		
+		$this->ciqrcode->generate($params);
+
+		$data['img'] = 'qr_dni_'.$dni.'.png';
+
+		return $url;
+	}
+
 	public function sendEmail($datos){
 		$this->email->from('registro@reddecomercios.com', 'Red de comercios');
 		$this->email->to($datos['email']);
-
-		/*$this->email->cc('another@another-example.com');
-		$this->email->bcc('them@their-example.com');*/
 
 		$this->email->subject('Datos de cuenta');
 		$vista = $this->load->view('emails/welcome',$datos,TRUE);
