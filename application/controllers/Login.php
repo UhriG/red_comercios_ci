@@ -36,24 +36,16 @@ class Login extends CI_Controller {
 			$data = array(
 				'id' => $res->id,
 				'nombre' => $res->nombre,
-				'apellido' => $res->apellido,
-				'puntos' => $res->puntos,
-				'telefono' => $res->telefono,
-				'email' => $res->email,
-				'dni' => $res->dni,
-				'estado' => $res->estado,
-				'perfil' => $res->perfil,	
-				'qr' =>	$res->qr,		
+				'apellido' => $res->apellido,		
 				'is_logged' => TRUE
 			);
 			$this->session->set_userdata($data);
-			$this->session->set_flashdata('msg','Bienvenido al sistema '.$data['nombre'].' '.$data['apellido']);
 			
 			echo json_encode(array("url" => base_url('dashboard')));
 		}
 	}
 	public function logout(){
-		$data = array('id','nombre','apellido','telefono','email','dni','estado','perfil','puntos','qr','is_logged');
+		$data = array('id','nombre','apellido','is_logged');
 		$this->session->unset_userdata($data);
 		$this->session->sess_destroy();
 
