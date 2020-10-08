@@ -8,7 +8,4 @@ class ModelsUsers extends CI_Model{
 		return $sql->result();
 	}
 
-	public function userInfo(){
-		$sql; 
-	}
 }

@@ -11,7 +11,7 @@ class Register extends CI_Controller {
 
 	public function index(){        
         $this->load->view('register');
-        $query = $this->db->get('usuarios');
+        $query = $this->db->get('clientes');
     }
     
     public function create(){
@@ -43,7 +43,7 @@ class Register extends CI_Controller {
 			array(
 				'field' => 'dni',
 				'label' => 'DNI',
-				'rules' => 'required|numeric|is_unique[usuarios.dni]|exact_length[8]',	
+				'rules' => 'required|numeric|is_unique[clientes.dni]|exact_length[8]',	
 				'errors' => array(
 					'required' => 'El campo %s no puede ir vacío',
 					'numeric' => 'Ingrese solo números',
@@ -54,7 +54,7 @@ class Register extends CI_Controller {
 			array(
 				'field' => 'email',
 				'label' => 'email',
-				'rules' => 'required|valid_email|is_unique[usuarios.email]',
+				'rules' => 'required|valid_email|is_unique[clientes.email]',
 				'errors' => array(
 					'required' => 'El campo %s no puede ir vacío',
 					'valid_email' => 'Ingrese un %s válido',
@@ -110,6 +110,7 @@ class Register extends CI_Controller {
 			///Genero el código QR y retorno la ruta de la imagen
 			$qr = $this->generateQR($datos['dni']);
 			$qr = str_replace('\\', '/', $qr);
+						
 			///Agrego al array de datos el codigo qr para ser guardado en la base de datos
 			$datos = array_merge($datos, array('qr'=>$qr));
 						
@@ -122,13 +123,15 @@ class Register extends CI_Controller {
 			$this->sendEmail($datos);
 			$data['msg'] = 'Registrado correctamente';
 			$this->load->view('register', $data);
+			sleep(5);
+			redirect('login');
 		}		
 	}
 
 	public function generateQR($dni){
-		$params['data'] = $dni;
+		$params['data'] = base_url().'clients/panel/'.$dni;
 		$params['level'] = 'H';
-		$params['size'] = 10;
+		$params['size'] = 5;
 		$params['savename'] = FCPATH."assets/dist/img/qr/qr_dni_$dni.png";
 		$url = base_url('assets/dist/img/qr/qr_dni_'.$dni.'.png');
 		

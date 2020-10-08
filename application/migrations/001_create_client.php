@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_create_user extends CI_Migration {
+class Migration_create_client extends CI_Migration {
 
         public function up()
         {
@@ -52,24 +52,14 @@ class Migration_create_user extends CI_Migration {
 							'type' => 'int',
 							'constraint' => '255',
 							'null' => TRUE,
-						),
-						'perfil' => array(
-							'type' => 'tinyint',
-							'constraint' => '1',
-							'null' => TRUE,
-						),
-						'estado' => array(
-							'type' => 'tinyint',
-							'constraint' => '1',
-							'null' => TRUE,
-						),
+						)
                 ));
                 $this->dbforge->add_key('id', TRUE);
-                $this->dbforge->create_table('usuarios');
+                $this->dbforge->create_table('clientes');
         }
 
         public function down()
         {
-                $this->dbforge->drop_table('usuarios');
+                $this->dbforge->drop_table('clientes');
         }
 }

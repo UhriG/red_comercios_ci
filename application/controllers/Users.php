@@ -13,11 +13,6 @@ class Users extends CI_Controller {
 		$this->getTemplate($vista);
 	}
 
-	public function info (){		
-		$vista = $this->load->view('users/user_info','',TRUE);
-		$this->getTemplate($vista);
-	}
-
 	public function list (){
 		$data = $this->ModelsUsers->getUsers();
 		$vista = $this->load->view('admin/show_users',array('data' => $data),TRUE);
@@ -41,4 +36,3 @@ class Users extends CI_Controller {
 		$this->load->view('dashboard',$data);
 	}
 }
-

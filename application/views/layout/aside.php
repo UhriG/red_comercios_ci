@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=base_url('users/info')?>"
+                    <a href="<?=base_url('clients/profile')?>"
                         class="nav-link <?= $this->uri->segment(2) == 'info' ? 'active' : ''; ?>" class="nav-link">
                         <i class="fas fa-user nav-icon"></i>
                         <p>Perfil</p>

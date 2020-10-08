@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller {
 			$vista = $this->load->view('home','',TRUE);
 			$this->getTemplate($vista);	
 		}else{
-			show_404();
+			redirect('login');
 		}
 	}
 	public function getTemplate($view){

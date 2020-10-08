@@ -7,7 +7,7 @@ class Auth extends CI_Model{
 
 	public function login($email, $password){
 		//Hago una consulta en la BD segun el mail ingresado en el login
-		$query = $this->db->get_where('usuarios', array('email' => $email), 1);
+		$query = $this->db->get_where('clientes', array('email' => $email), 1);
 
 		//Verifico que la consulta devuelva algo, si no habria error en caso de un email inexistente
 		if(!$query->result()){

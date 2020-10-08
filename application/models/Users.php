@@ -15,12 +15,10 @@ class Users extends CI_Model{
 			'telefono' => $datos['telefono'],
 			'password' => $datos['password'],
 			'qr' => $datos['qr'],
-			'puntos' => 0,
-			'perfil' => 0,
-			'estado' => 0,
+			'puntos' => 0
 		);
 
-		if(!$this->db->insert('usuarios', $datos)){
+		if(!$this->db->insert('clientes', $datos)){
 			return false;
 		}
 		return true;

@@ -1,6 +1,6 @@
 <?php 
 	$id = $this->session->id;
-	$query = $this->db->get_where('usuarios', array('id' => $id), 1);
+	$query = $this->db->get_where('clientes', array('id' => $id), 1);
 	$usuario = $query->row();
 ?>
 <!-- Content Wrapper. Contains page content -->
