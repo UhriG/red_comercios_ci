@@ -36,24 +36,36 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?=base_url('clients/profile')?>"
-                        class="nav-link <?= $this->uri->segment(2) == 'info' ? 'active' : ''; ?>" class="nav-link">
+                        class="nav-link <?= $this->uri->segment(2) == 'profile' ? 'active' : ''; ?>" class="nav-link">
                         <i class="fas fa-user nav-icon"></i>
                         <p>Perfil</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=base_url('users/list')?>"
-                        class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>" class="nav-link">
+                    <a href="<?=base_url('clients/panel')?>"
+                        class="nav-link <?= $this->uri->segment(2) == 'panel' ? 'active' : ''; ?>" class="nav-link">
                         <i class="fas fa-users nav-icon"></i>
-                        <p>Clientes</p>
+                        <p>Cliente</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?=base_url('users/admin')?>"
-                        class="nav-link <?= $this->uri->segment(2) == 'admin'  ? 'active' : ''; ?>" class="nav-link">
-                        <i class="fas fa-user-cog nav-icon"></i>
-                        <p>Admin</p>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Admin
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="<?=base_url('users/list')?>"
+                                class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>"
+                                class="nav-link">
+                                <i class="fas fa-users nav-icon"></i>
+                                <p>Usuarios</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
 
@@ -61,5 +73,6 @@
         </nav>
         <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
+    <!--
+ /.sidebar -->
 </aside>

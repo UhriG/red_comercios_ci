@@ -36,6 +36,9 @@
              </div>
              <div class="card-body">
                  Start creating your amazing application!
+                 <?php
+				 	print_r($data);
+				 ?>
              </div>
              <!-- /.card-body -->
              <div class="card-footer">

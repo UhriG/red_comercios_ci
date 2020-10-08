@@ -25,11 +25,18 @@ class Clients extends CI_Controller {
 	}
 
 	///Panel cliente: al leer el qr llega el dni del cliente y lleva a su perfil
-	public function panel($dni){
+	public function panel($dni=''){
 		$data = $this->ModelsClients->getClient($dni);
 		$vista = $this->load->view('clients/user_panel', array('data' => $data), TRUE);
+		$this->getTemplate($vista);	
+		return $dni;	
+	}
+
+	public function load_points(){
+		$dni = $this->panel();
+		$data = $this->ModelsClients->getClient($dni);
+		$vista = $this->load->view('clients/user_add_points', array('data' => $data), TRUE);
 		$this->getTemplate($vista);
-		
 	}
 
 	public function getTemplate($view){
