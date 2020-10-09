@@ -1,65 +1,65 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Migration_create_client extends CI_Migration {
+class Migration_create_client extends CI_Migration
+{
+	public function up()
+	{
+		$this->dbforge->add_field([
+			'id' => [
+				'type' => 'INT',
+				'constraint' => 10,
+				'unsigned' => true,
+				'auto_increment' => true,
+			],
+			'nombre' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+				'null' => true,
+			],
+			'apellido' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+				'null' => true,
+			],
+			'dni' => [
+				'type' => 'int',
+				'constraint' => '15',
+				'null' => true,
+			],
+			'email' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+				'null' => true,
+			],
+			'telefono' => [
+				'type' => 'int',
+				'constraint' => '20',
+				'null' => true,
+			],
+			'password' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+				'null' => true,
+			],
+			'qr' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+				'null' => true,
+			],
+			'puntos' => [
+				'type' => 'int',
+				'constraint' => '255',
+				'null' => true,
+			],
+		]);
+		$this->dbforge->add_key('id', true);
+		$this->dbforge->create_table('clientes');
+	}
 
-        public function up()
-        {
-                $this->dbforge->add_field(array(
-                        'id' => array(
-                                'type' => 'INT',
-                                'constraint' => 10,
-                                'unsigned' => TRUE,
-                                'auto_increment' => TRUE
-                        ),
-                        'nombre' => array(
-                                'type' => 'VARCHAR',
-								'constraint' => '100',
-								'null' => TRUE,
-                        ),
-                        'apellido' => array(
-								'type' => 'VARCHAR',
-								'constraint' => '100',
-								'null' => TRUE,
-						),
-						'dni' => array(
-							'type' => 'int',
-							'constraint' => '15',
-							'null' => TRUE,
-						),
-						'email' => array(
-							'type' => 'VARCHAR',
-							'constraint' => '100',
-							'null' => TRUE,
-						),
-						'telefono' => array(
-							'type' => 'int',
-							'constraint' => '20',
-							'null' => TRUE,
-						),
-						'password' => array(
-							'type' => 'VARCHAR',
-							'constraint' => '100',
-							'null' => TRUE,
-						),
-						'qr' => array(
-							'type' => 'VARCHAR',
-							'constraint' => '100',
-							'null' => TRUE,
-						),
-						'puntos' => array(
-							'type' => 'int',
-							'constraint' => '255',
-							'null' => TRUE,
-						)
-                ));
-                $this->dbforge->add_key('id', TRUE);
-                $this->dbforge->create_table('clientes');
-        }
-
-        public function down()
-        {
-                $this->dbforge->drop_table('clientes');
-        }
+	public function down()
+	{
+		$this->dbforge->drop_table('clientes');
+	}
 }

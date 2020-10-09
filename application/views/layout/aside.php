@@ -4,7 +4,7 @@
     <a href="<?= base_url(); ?>" class="brand-link">
         <img src="<?= base_url()."assets/"; ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Donde Compra</span>
     </a>
 
     <!-- Sidebar -->
@@ -43,7 +43,7 @@
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-cogs"></i>
                         <p>
                             Admin
                             <i class="right fas fa-angle-left"></i>
@@ -59,6 +59,12 @@
                             </a>
                         </li>
                     </ul>
+                <li class="nav-item">
+                    <a href="<?=base_url('login/logout')?>" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>Cerrar sesión</p>
+                    </a>
+                </li>
                 </li>
 
 
@@ -66,6 +72,6 @@
         </nav>
         <!-- /.sidebar-menu -->
     </div>
-    <!--
+    <!-- 
  /.sidebar -->
 </aside>

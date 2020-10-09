@@ -69,7 +69,7 @@ if($this->session->userdata('is_logged')){
                             <button type="submit" class="btn btn-primary btn-block">Entrar</button>
                         </div>
                         <!-- /.col -->
-                    </div>
+                    </div><br>
                     <div class="form-group" id="alert">
 
                     </div>
