@@ -20,39 +20,50 @@
      <!-- Main content -->
      <section class="content">
 
-         <!-- Default box -->
-         <div class="card">
+         <div class="container">
+             <div class="row">
+                 <div class="col">
 
-             <div class="card-body">
-                 <div class="card">
-                     <div class="card-body register-card-body">
-                         <p class="login-box-msg">Buscar cliente</p>
-                         <?php echo validation_errors(); ?>
+                     <div class="card card-widget widget-user-2">
+                         <!-- Add the bg color to the header using any of the bg-* classes -->
+                         <div class="widget-user-header">
 
-                         <?= form_open('clients/panel',array('method'=>'POST'));?>
-                         <div class="input-group mb-3">
-                             <input type="text" name="dni" value="" class="form-control" placeholder="DNI">
-                             <div class="input-group-append">
-                                 <div class="input-group-text">
-                                     <span class="fas fa-card"></span>
+                             <div class="info-box shadow">
+                                 <span class="info-box-icon bg-primary"><i class="far fa-user"></i></span>
+
+                                 <div class="info-box-content">
+                                     <span class="info-box-text"><strong><?= $data->nombre?>
+                                             <?= $data->apellido?></strong></span>
+                                     <span class="info-box-text">DNI: <?= $data->dni?></span>
                                  </div>
+                                 <!-- /.info-box-content -->
+                             </div>
+                             <div class="info-box shadow">
+                                 <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+                                 <div class="info-box-content">
+                                     <span class="info-box-text">Puntos</span>
+                                     <span class="info-box-number"><?= $data->puntos?></span>
+                                 </div>
+                                 <!-- /.info-box-content -->
                              </div>
                          </div>
-
-                         <div class="row">
-                             <!-- /.col -->
-                             <div class="col-6">
-                                 <button type="submit" name="submit" value=""
-                                     class="btn btn-primary btn-block">Registrarme</button>
-                             </div>
-                             <!-- /.col -->
+                         <div class="card-footer p-0">
+                             <ul class="nav flex-column">
+                                 <li class="nav-item">
+                                     <a href="<?=base_url().'clients/remove_points/'.$data->dni?>"><button
+                                             class="btn btn-block btn-primary">Canjear puntos</button></a>
+                                 </li>
+                                 <li class="nav-item">
+                                     <a href="<?=base_url().'clients/load_points/'.$data->dni?>"><button
+                                             class="btn btn-block btn-success">Cargar puntos</button></a>
+                                 </li>
+                             </ul>
                          </div>
-                         </form>
-
                      </div>
-                     <?php print_r($data) ?>
-                     <!-- /.form-box -->
-                 </div><!-- /.card -->
+
+                 </div>
+
              </div>
              <!-- /.card-body -->
 
@@ -63,4 +74,8 @@
      <!-- /.content -->
 
  </div>
+
+
+
+
  <!-- /.content-wrapper -->

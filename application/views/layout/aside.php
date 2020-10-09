@@ -41,13 +41,6 @@
                         <p>Perfil</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?=base_url('clients/panel')?>"
-                        class="nav-link <?= $this->uri->segment(2) == 'panel' ? 'active' : ''; ?>" class="nav-link">
-                        <i class="fas fa-users nav-icon"></i>
-                        <p>Cliente</p>
-                    </a>
-                </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
