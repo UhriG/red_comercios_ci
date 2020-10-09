@@ -32,10 +32,10 @@ class Clients extends CI_Controller {
 		return $dni;	
 	}
 
-	public function load_points($dni){
-		$data = $this->ModelsClients->getClient($dni);
-		$vista = $this->load->view('clients/user_add_points', array('data' => $data), TRUE);
-		$this->getTemplate($vista);
+	public function load_points(){
+		$id = $this->input->post('id');
+		$data = array('puntos' => $this->input->post('puntos'));
+		$this->ModelsClients->updatePoints($id,$data);
 	}
 	
 	public function remove_points($dni){

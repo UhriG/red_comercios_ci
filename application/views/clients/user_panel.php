@@ -55,8 +55,8 @@
                                              class="btn btn-block btn-primary">Canjear puntos</button></a>
                                  </li>
                                  <li class="nav-item">
-                                     <a href="<?=base_url().'clients/load_points/'.$data->dni?>"><button
-                                             class="btn btn-block btn-success">Cargar puntos</button></a>
+                                     <button class="btn btn-block btn-success" data-toggle="modal"
+                                         data-target="#modal-sm">Cargar puntos</button>
                                  </li>
                              </ul>
                          </div>
@@ -74,8 +74,34 @@
      <!-- /.content -->
 
  </div>
-
-
-
-
  <!-- /.content-wrapper -->
+
+ <!--Modal Cargar puntos -->
+ <div class="modal fade" id="modal-sm">
+     <div class="modal-dialog modal-sm">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">Cargar puntos</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                 <form action="<?=base_url('clients/load_points')?>" method="post">
+                     <div class="form-group">
+                         <input class="form-control" type="number" name="puntos" placeholder="Puntos" step="5" min="0"
+                             max="100">
+                     </div>
+                     <input type="hidden" name="id" value="<?=$data->id ?>">
+             </div>
+             <div class="modal-footer justify-content-between">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                 <button type="submit" class="btn btn-primary">Cargar</button>
+             </div>
+             </form>
+         </div>
+         <!-- /.modal-content -->
+     </div>
+     <!-- /.modal-dialog -->
+ </div>
+ <!-- /.modal -->
