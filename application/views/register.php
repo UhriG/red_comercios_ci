@@ -105,7 +105,15 @@
             <!-- /.form-box -->
         </div><!-- /.card -->
     </div>
-    <?= isset($msg) ? $msg : ''; ?>
+    <?php
+		if(isset($msg)){
+			if($msg!=''){
+				echo '<div class="alert alert-success" role="alert">';
+				echo $msg;
+				echo '</div>';
+			}
+		}
+	?>
     <!-- /.register-box -->
 
     <!-- jQuery -->

@@ -1725,7 +1725,7 @@
     }
 
     .body-border {
-        border-top: 8px solid #663399;
+        border-top: 8px solid #336a99;
     }
     </style>
     <style>

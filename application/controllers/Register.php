@@ -123,8 +123,6 @@ class Register extends CI_Controller {
 			$this->sendEmail($datos);
 			$data['msg'] = 'Registrado correctamente';
 			$this->load->view('register', $data);
-			sleep(5);
-			redirect('login');
 		}		
 	}
 

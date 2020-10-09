@@ -35,7 +35,8 @@ class ModelsClients extends CI_Model {
 	}
 	
 	public function getPuntosId($id){ 
-		$fila = $this->db->get_where('clientes', array('id'=>$id))->row();  return $fila;
+		$fila = $this->db->get_where('clientes', array('id'=>$id))->row(); 
+		return $fila;
 	}
 
 }
