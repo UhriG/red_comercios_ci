@@ -1,23 +1,24 @@
 <?php
-
-function getLoginRules(){
-	return array(
-        
-		array(
+if (!function_exists('getCreateUserRules')) {
+	function getLoginRules()
+	{
+		return [
+			[
 				'field' => 'email',
 				'label' => 'Email',
 				'rules' => 'required|trim',
-				'errors' => array(
-					'required' => 'El %s es requerido'
-				)
-		),
-		array(
+				'errors' => [
+					'required' => 'El %s es requerido',
+				],
+			],
+			[
 				'field' => 'password',
 				'label' => 'Password',
 				'rules' => 'required|trim',
-				'errors' => array(
-					'required' => 'El %s es requerido'
-				)
-		),		
-	);
+				'errors' => [
+					'required' => 'El %s es requerido',
+				],
+			],
+		];
+	}
 }

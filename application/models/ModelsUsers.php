@@ -4,7 +4,7 @@ class ModelsUsers extends CI_Model{
 		$this->load->database();
 	}
 	public function getUsers(){
-		$sql = $this->db->get('usuarios');
+		$sql = $this->db->get('clientes');
 		return $sql->result();
 	}
 
