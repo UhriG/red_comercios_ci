@@ -53,19 +53,37 @@ class ModelsUsers extends CI_Model
 
 	public function getClientes()
 	{		
-		$sql = $this->db->get('clientes');
+		$sql = $this->db->get_where('usuarios',array('perfil'=>'cliente'));
 		return $sql->result();
 	}
 
 	public function getComercios()
 	{		
-		$sql = $this->db->get('comercios');
+		$sql = $this->db->get_where('usuarios',array('perfil'=>'comercio'));
 		return $sql->result();
 	}
 
 	public function getAdmins()
 	{		
-		$sql = $this->db->get('admins');
+		$sql = $this->db->get_where('usuarios',array('perfil'=>'admin'));
 		return $sql->result();
+	}
+
+	public function getUserClient($id){
+		$this->db->join('clientes', 'usuarios.id = clientes.id_usuario');
+		$user = $this->db->get_where('usuarios',array('usuarios.id' => $id),1);
+		return $user->row_array();
+	}
+
+	public function getUserCommerce($id){
+		$this->db->join('comercios', 'usuarios.id = comercios.id_usuario');
+		$user = $this->db->get_where('usuarios',array('usuarios.id' => $id),1);
+		return $user->row_array();
+	}
+
+	public function getUserAdmin($id){
+		$this->db->join('admins', 'usuarios.id = admins.id_usuario');
+		$user = $this->db->get_where('usuarios',array('usuarios.id' => $id),1);
+		return $user->row_array();
 	}
 }

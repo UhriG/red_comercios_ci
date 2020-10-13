@@ -143,18 +143,29 @@ class Users extends CI_Controller
 
 		$vista = $this->load->view('admin/create_users', '', true);
 		$this->getTemplate($vista);
+	}	
+
+	public function update(){
+		
 	}
 
-	public function list()
-	{
-		$data = $this->ModelsUsers->getUsers();
-		$vista = $this->load->view('admin/show_users', ['data' => $data], true);
+	public function editClient($id = 0){
+		$user = $this->ModelsUsers->getUserClient($id);
+		$vista = $this->load->view('admin/edit_users', array('user' => $user), TRUE);
 		$this->getTemplate($vista);
 	}
 
-	public function admin()
-	{
-		$vista = $this->load->view('admin/admin_users', '', true);
+	public function editCommerce($id = 0){
+		$user = $this->ModelsUsers->getUserCommerce($id);
+		
+		$vista = $this->load->view('admin/edit_users', '', TRUE);
+		$this->getTemplate($vista);
+	}
+
+	public function editAdmin($id = 0){
+		$user = $this->ModelsUsers->getUserAdmin($id);
+		
+		$vista = $this->load->view('admin/edit_users', '', TRUE);
 		$this->getTemplate($vista);
 	}
 

@@ -39,12 +39,12 @@
                     style="width:100%">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th style="width:5%;">ID</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
-                            <th>DNI</th>
-                            <th>Teléfono</th>
-                            <th>Acciones</th>
+                            <th>Email</th>
+                            <th>Estado</th>
+                            <th style="width:5%;">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,9 +53,16 @@
                             <th><?= $item->id ?></th>
                             <td><?= $item->nombre ?></td>
                             <td><?= $item->apellido?></td>
-                            <td><?= $item->dni ?></td>
-                            <td><?= $item->telefono ?></td>
-                            <td>acciones</td>
+                            <td><?= $item->email ?></td>
+                            <td><?= $item->estado == 1 ? 'Activado' : 'Desactivado'?></td>
+                            <td>
+                                <div class="btn-group float-right">
+                                    <a href="<?=base_url('users/editCommerce/'.$item->id)?>"><button type="button"
+                                            class="btn btn-warning"><i class="fas fa-user-edit"></i></button></a>
+                                    <a href=""><button type="button" class="btn btn-danger"><i
+                                                class="fas fa-trash-alt"></i></button></a>
+                                </div>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
