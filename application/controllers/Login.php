@@ -40,6 +40,8 @@ class Login extends CI_Controller
 				'id' => $res->id,
 				'nombre' => $res->nombre,
 				'apellido' => $res->apellido,
+				'email' => $res->email,
+				'perfil' =>$res->perfil,				
 				'is_logged' => true,
 			];
 			$this->session->set_userdata($data);
@@ -49,7 +51,7 @@ class Login extends CI_Controller
 	}
 	public function logout()
 	{
-		$data = ['id', 'nombre', 'apellido', 'is_logged'];
+		$data = ['id', 'nombre', 'apellido', 'email', 'perfil', 'is_logged'];
 		$this->session->unset_userdata($data);
 		$this->session->sess_destroy();
 

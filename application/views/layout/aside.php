@@ -1,3 +1,9 @@
+<?php 
+	$id = $this->session->id;
+	$query = $this->db->get_where('usuarios', array('id' => $id), 1);
+	$usuario = $query->row();
+	//print_r($usuario);
+?>
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -16,8 +22,8 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="<?=base_url('users/info')?>" class="d-block"> <?php echo $this->session->nombre ?>
-                    <?php echo $this->session->apellido ?></a>
+                <a href="<?=base_url('users/info')?>" class="d-block"> <?=$usuario->nombre?>
+                    <?=$usuario->apellido?>
             </div>
         </div>
 
@@ -28,12 +34,13 @@
                with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
-                    <a href="<?=base_url()?>" class="nav-link <?= $this->uri->segment(2) == '' ? 'active' : ''; ?>"
-                        class="nav-link">
+                    <a href="<?=base_url()?>"
+                        class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active' : ''; ?>" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Escritorio</p>
                     </a>
                 </li>
+                <?php if($usuario->perfil == 'cliente'):?>
                 <li class="nav-item">
                     <a href="<?=base_url('clients/profile')?>"
                         class="nav-link <?= $this->uri->segment(2) == 'profile' ? 'active' : ''; ?>" class="nav-link">
@@ -41,8 +48,19 @@
                         <p>Perfil</p>
                     </a>
                 </li>
+                <?php endif; ?>
+                <?php if($usuario->perfil == 'comercio'):?>
+                <li class="nav-item">
+                    <a href="<?=base_url('clients')?>"
+                        class="nav-link <?= $this->uri->segment(1) == 'clients' ? 'active' : ''; ?>" class="nav-link">
+                        <i class="fas fa-user nav-icon"></i>
+                        <p>Comercio</p>
+                    </a>
+                </li>
+                <?php endif; ?>
+                <?php if($usuario->perfil == 'admin'):?>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>">
+                    <a href="#" class="nav-link <?= $this->uri->segment(1) == 'users'  ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
                             Admin
@@ -51,14 +69,48 @@
                     </a>
                     <ul class="nav nav-treeview" style="display: none;">
                         <li class="nav-item">
-                            <a href="<?=base_url('users/list')?>"
-                                class="nav-link <?= $this->uri->segment(2) == 'list'  ? 'active' : ''; ?>"
+                            <a href="<?=base_url('users')?>"
+                                class="nav-link <?= $this->uri->segment(1) == 'users' && $this->uri->segment(2) == '' ? 'active' : ''; ?>"
+                                class="nav-link">
+                                <i class="fas fa-tachometer-alt nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=base_url('users/create')?>"
+                                class="nav-link <?= $this->uri->segment(2) == 'create'  ? 'active' : ''; ?>"
+                                class="nav-link">
+                                <i class="fas fa-user nav-icon"></i>
+                                <p>Crear usuario</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=base_url('users/list_clients')?>"
+                                class="nav-link <?= $this->uri->segment(2) == 'list_clients'  ? 'active' : ''; ?>"
                                 class="nav-link">
                                 <i class="fas fa-users nav-icon"></i>
-                                <p>Usuarios</p>
+                                <p>Clientes</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=base_url('users/list_commerce')?>"
+                                class="nav-link <?= $this->uri->segment(2) == 'list_commerce'  ? 'active' : ''; ?>"
+                                class="nav-link">
+                                <i class="fas fa-store nav-icon"></i>
+                                <p>Comercios</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?=base_url('users/list_admins')?>"
+                                class="nav-link <?= $this->uri->segment(2) == 'list_admins'  ? 'active' : ''; ?>"
+                                class="nav-link">
+                                <i class="fas fa-users-cog nav-icon"></i>
+                                <p>Administradores</p>
                             </a>
                         </li>
                     </ul>
+                </li>
+                <?php endif; ?>
                 <li class="nav-item">
                     <a href="<?=base_url('login/logout')?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>

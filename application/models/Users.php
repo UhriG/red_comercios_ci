@@ -1,27 +1,24 @@
 <?php
 
-class Users extends CI_Model{
-	function __construct(){
+class Users extends CI_Model
+{
+	function __construct()
+	{
 		$this->load->database();
 	}
 
-	public function create($datos){
+	public function create($user, $user_info)
+	{
+		$this->db->trans_start();
+		$this->db->insert('usuarios', $user);
+		$user_info['id_usuario'] = $this->db->insert_id();
+		$this->db->insert('clientes', $user_info);
+		$this->db->trans_complete();
 
-		$datos = array(
-			'nombre' => $datos['nombre'],
-			'apellido' => $datos['apellido'],
-			'dni' => $datos['dni'],
-			'email' => $datos['email'],
-			'telefono' => $datos['telefono'],
-			'password' => $datos['password'],
-			'qr' => $datos['qr'],
-			'puntos' => 0
-		);
-
-		if(!$this->db->insert('clientes', $datos)){
+		if ($this->db->trans_status() === false) {
 			return false;
+		} else {
+			return true;
 		}
-		return true;
 	}
-	
 }

@@ -12,8 +12,13 @@ class Migration_create_user extends CI_Migration
 				'constraint' => 10,
 				'unsigned' => true,
 				'auto_increment' => true,
+			],			
+			'nombre' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+				'null' => true,
 			],
-			'usuario' => [
+			'apellido' => [
 				'type' => 'VARCHAR',
 				'constraint' => '100',
 				'null' => true,
@@ -44,12 +49,13 @@ class Migration_create_user extends CI_Migration
 
 		///Datos del usuario administrador por defecto
 		$data = [
-			'usuario' => 'admin',
+			'nombre' => 'Admin',
+			'apellido' => 'Admin',
 			'email' => 'admin@admin.com',
 			'password' => password_hash('admin', PASSWORD_BCRYPT, [
 				'cost' => 4,
 			]),
-			'perfil' => '2', /// 0=cliente, 1=comercio, 2=administrador
+			'perfil' => 'admin', /// cliente, comercio, admin
 			'estado' => '1', /// 1 activo, 0 inactivo
 		];
 		///Subo el usuario administrador a la tabla usuarios

@@ -35,7 +35,7 @@ if (!function_exists('getCreateUserRules')) {
 			[
 				'field' => 'email',
 				'label' => 'email',
-				'rules' => 'required|valid_email|is_unique[clientes.email]',
+				'rules' => 'required|valid_email|is_unique[usuarios.email]',
 				'errors' => [
 					'required' => 'El campo %s no puede ir vacío',
 					'valid_email' => 'Ingrese un %s válido',

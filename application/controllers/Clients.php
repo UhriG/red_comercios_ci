@@ -14,7 +14,7 @@ class Clients extends CI_Controller {
 
 	public function index()
 	{
-		$vista = $this->load->view('clients/user_panel', '', TRUE);
+		$vista = $this->load->view('clients/user_dashboard', '', TRUE);
 		$this->getTemplate($vista);		
 	}
 	

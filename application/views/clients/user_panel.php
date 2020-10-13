@@ -1,3 +1,6 @@
+ <?php if ($this->session->perfil == 'cliente' || empty($data)) {
+ 	redirect('dashboard', 'refresh');
+ } ?>
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
      <!-- Content Header (Page header) -->
@@ -9,7 +12,7 @@
                  </div>
                  <div class="col-sm-6">
                      <ol class="breadcrumb float-sm-right">
-                         <li class="breadcrumb-item"><a href="<?=base_url();?>">Inicio</a></li>
+                         <li class="breadcrumb-item"><a href="<?= base_url() ?>">Inicio</a></li>
                          <li class="breadcrumb-item active">Panel cliente</li>
                      </ol>
                  </div>
@@ -32,9 +35,9 @@
                                  <span class="info-box-icon bg-primary"><i class="far fa-user"></i></span>
 
                                  <div class="info-box-content">
-                                     <span class="info-box-text"><strong><?= $data->nombre?>
-                                             <?= $data->apellido?></strong></span>
-                                     <span class="info-box-text">DNI: <?= $data->dni?></span>
+                                     <span class="info-box-text"><strong><?= $data->nombre ?>
+                                             <?= $data->apellido ?></strong></span>
+                                     <span class="info-box-text">DNI: <?= $data->dni ?></span>
                                  </div>
                                  <!-- /.info-box-content -->
                              </div>
@@ -43,7 +46,7 @@
 
                                  <div class="info-box-content">
                                      <span class="info-box-text">Puntos</span>
-                                     <span class="info-box-number"><?= $data->puntos?></span>
+                                     <span class="info-box-number"><?= $data->puntos ?></span>
                                  </div>
                                  <!-- /.info-box-content -->
                              </div>
@@ -51,8 +54,10 @@
                          <div class="card-footer p-0">
                              <ul class="nav flex-column">
                                  <li class="nav-item">
-                                     <a href="<?=base_url().'clients/remove_points/'.$data->dni?>"><button
-                                             class="btn btn-block btn-primary">Canjear puntos</button></a>
+                                     <a href="<?= base_url() .
+                                     	'clients/remove_points/' .
+                                     	$data->dni ?>"><button class="btn btn-block btn-primary">Canjear
+                                             puntos</button></a>
                                  </li>
                                  <li class="nav-item">
                                      <button class="btn btn-block btn-success" data-toggle="modal"
@@ -72,7 +77,6 @@
 
      </section>
      <!-- /.content -->
-
  </div>
  <!-- /.content-wrapper -->
 
@@ -87,12 +91,14 @@
                  </button>
              </div>
              <div class="modal-body">
-                 <form action="<?=base_url('clients/load_points')?>" method="post">
+                 <form action="<?= base_url(
+                 	'clients/load_points'
+                 ) ?>" method="post">
                      <div class="form-group">
                          <input class="form-control" type="number" name="puntos" placeholder="Puntos" step="5" min="0"
                              max="100">
                      </div>
-                     <input type="hidden" name="id" value="<?=$data->id ?>">
+                     <input type="hidden" name="id" value="<?= $data->id ?>">
              </div>
              <div class="modal-footer justify-content-between">
                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

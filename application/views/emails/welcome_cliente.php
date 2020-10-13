@@ -1816,7 +1816,8 @@
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
-
+                                                                <center data-parsed=""> <img src="<?=$qr?>"
+                                                                        align="center" class="float-center"> </center>
                                                                 <table class="spacer">
                                                                     <tbody>
                                                                         <tr>
@@ -1826,7 +1827,9 @@
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
-
+                                                                <h4>El código QR será tu identificador personal, te
+                                                                    recomendamos guardarlo y tenerlo siempre a mano.
+                                                                </h4>
                                                                 <h6>Utiliza las siguientes credenciales para ingresar al
                                                                     sistema:</h6>
                                                                 <p>Email: <strong><?=$email?></strong></p>
@@ -1849,9 +1852,9 @@
                                                                                                                 <center>
                                                                                                                     <a href="<?=base_url('login')?>"
                                                                                                                         align="center"
-                                                                                                                        class="float-center">IR
-                                                                                                                        AL
-                                                                                                                        PANEL</a>
+                                                                                                                        class="float-center">VER
+                                                                                                                        PUNTOS
+                                                                                                                        DISPONIBLES</a>
                                                                                                                 </center>
                                                                                                             </td>
                                                                                                         </tr>
@@ -1920,6 +1923,5 @@
         </tr>
     </table>
 </body>
-
 
 </html>

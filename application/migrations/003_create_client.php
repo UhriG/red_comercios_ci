@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Migration_create_commerce extends CI_Migration
+class Migration_create_client extends CI_Migration
 {
 	public function up()
 	{
@@ -37,14 +37,24 @@ class Migration_create_commerce extends CI_Migration
 				'type' => 'int',
 				'constraint' => '20',
 				'null' => true,
-			]
+			],			
+			'qr' => [
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+				'null' => true,
+			],
+			'puntos' => [
+				'type' => 'int',
+				'constraint' => '255',
+				'null' => true,
+			],
 		]);
 		$this->dbforge->add_key('id', true);
-		$this->dbforge->create_table('comercios');
+		$this->dbforge->create_table('clientes');
 	}
 
 	public function down()
 	{
-		$this->dbforge->drop_table('comercios');
+		$this->dbforge->drop_table('clientes');
 	}
 }

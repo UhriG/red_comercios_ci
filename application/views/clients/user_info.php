@@ -1,8 +1,16 @@
 <?php 
-	$id = $this->session->id;
-	$query = $this->db->get_where('clientes', array('id' => $id), 1);
-	$usuario = $query->row();
+	if($this->session->perfil != 'cliente'){
+			
+		redirect('dashboard','refresh');
+		
+	}
+		$id = $this->session->id;
+		$query = $this->db->get_where('clientes', array('id_usuario' => $id), 1);
+		$usuario = $query->row();	
+		
+	
 ?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -47,9 +55,6 @@
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
                                             <b>Teléfono: </b> <a class="float-right"><?=$usuario->telefono?></a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <b>Email: </b> <a class="float-right"><?=$usuario->email?></a>
                                         </li>
                                         <li class="list-group-item">
                                             <b>Puntos</b> <a class="float-right"><?=$usuario->puntos?></a>

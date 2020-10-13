@@ -58,7 +58,7 @@ class Register extends CI_Controller
 			[
 				'field' => 'email',
 				'label' => 'email',
-				'rules' => 'required|valid_email|is_unique[clientes.email]',
+				'rules' => 'required|valid_email|is_unique[usuarios.email]',
 				'errors' => [
 					'required' => 'El campo %s no puede ir vacío',
 					'valid_email' => 'Ingrese un %s válido',
@@ -102,24 +102,40 @@ class Register extends CI_Controller
 		if ($this->form_validation->run() == false) {
 			$this->load->view('register');
 		} else {
-			$datos = [
+			$user = [
+				'nombre' => $nombre,
+				'apellido' => $apellido,
+				'email' => $email,				
+				'password' => $password_segura, ///Enviamos la contraseña encripatada a la BD
+				'perfil' => 'cliente',
+				'estado' => 1,
+			];
+
+			$user_info = [
 				'nombre' => $nombre,
 				'apellido' => $apellido,
 				'dni' => $dni,
-				'email' => $email,
 				'telefono' => $telefono,
-				'password' => $password_segura,
-				'pass' => $password,
+				'puntos' => 0,
 			];
 
 			///Genero el código QR y retorno la ruta de la imagen
-			$qr = $this->generateQR($datos['dni']);
+			$qr = $this->generateQR($user_info['dni']);
 			$qr = str_replace('\\', '/', $qr);
 
 			///Agrego al array de datos el codigo qr para ser guardado en la base de datos
-			$datos = array_merge($datos, ['qr' => $qr]);
+			$user_info = array_merge($user_info, ['qr' => $qr]);
 
-			if (!$this->Users->create($datos)) {
+			///Array de datos para el email
+			$datos = [
+				'nombre' => $nombre,
+				'apellido' => $apellido,
+				'pass' => $password,
+				'email' => $email,
+				'qr' => $qr,
+			];
+
+			if (!$this->Users->create($user, $user_info)) {
 				$data['msg'] =
 					'Ocurrio un error al ingresar los datos, intente nuevamente';
 				$this->load->view('register', $data);
@@ -153,7 +169,7 @@ class Register extends CI_Controller
 		$this->email->to($datos['email']);
 
 		$this->email->subject('Datos de cuenta');
-		$vista = $this->load->view('emails/welcome', $datos, true);
+		$vista = $this->load->view('emails/welcome_cliente', $datos, true);
 		$this->email->message($vista);
 
 		$this->email->send(); 
