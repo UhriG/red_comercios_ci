@@ -33,15 +33,22 @@ class Clients extends CI_Controller {
 	}
 
 	public function load_points(){
-		$id = $this->input->post('id');
-		$data = array('puntos' => $this->input->post('puntos'));
-		$this->ModelsClients->updatePoints($id,$data);
-	}
-	
-	public function remove_points($dni){
-		$data = $this->ModelsClients->getClient($dni);
-		$vista = $this->load->view('clients/user_remove_points', array('data' => $data), TRUE);
-		$this->getTemplate($vista);
+		///ID usuario del CLIENTE
+		$idUsuario = $this->input->post('idUsuario');
+		$idCliente = $this->input->post('idCliente');
+
+		$idComercio = $this->input->post('idComercio');
+
+		$puntos = array('puntos' => $this->input->post('puntos'));
+		
+		$cliente = $this->ModelsClients->getUser($idCliente);
+		$comercio = $this->ModelsClients->getUser($idComercio);
+		
+		///Guardo la informacion de quien le cargo puntos a quien y a que hora
+		$this->ModelsClients->movimientos($puntos,$cliente,$comercio);
+
+		///Cargo los puntos
+		$this->ModelsClients->updatePoints($idUsuario,$puntos);				
 	}
 
 	public function getTemplate($view){

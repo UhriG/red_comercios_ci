@@ -37,6 +37,12 @@ class Users extends CI_Controller
 		$this->getTemplate($vista);
 	}
 
+	public function list_movements(){
+		$data = $this->ModelsUsers->getMovements();
+		$vista = $this->load->view('admin/show_movements', ['data' => $data], true);
+		$this->getTemplate($vista);
+	}
+
 	public function create()
 	{
 		$vista = $this->load->view('admin/create_users', '', true);

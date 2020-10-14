@@ -98,7 +98,9 @@
                          <input class="form-control" type="number" name="puntos" placeholder="Puntos" step="5" min="0"
                              max="100">
                      </div>
-                     <input type="hidden" name="id" value="<?= $data->id ?>">
+                     <input type="hidden" name="idUsuario" value="<?= $data->id ?>">
+                     <input type="hidden" name="idCliente" value="<?= $data->id_usuario ?>">
+                     <input type="hidden" name="idComercio" value="<?= $this->session->id ?>">
              </div>
              <div class="modal-footer justify-content-between">
                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

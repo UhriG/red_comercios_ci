@@ -29,14 +29,30 @@ class ModelsClients extends CI_Model {
 		///Busco el cliente correspondiente al ID recibido
 		$this->db->where('id', intval($id));
 		///Actualizo la tabla con el puntaje nuevo
-		$this->db->update('clientes');
-		redirect(base_url('clients/panel/'.$campo->dni));	
-
+		$this->db->update('clientes');	
+		redirect(base_url('clients/panel/'.$campo->dni));		
 	}
 	
 	public function getPuntosId($id){ 
 		$fila = $this->db->get_where('clientes', array('id'=>$id))->row(); 
 		return $fila;
+	}
+
+	public function getUser($id){
+		$sql = $this->db->get_where('usuarios',array('id'=>$id));
+		return $sql->row_array();
+	}
+
+	public function movimientos($puntos, $cliente, $comercio){
+		$data = array(
+			'id_comercio' => $comercio['id'],
+			'nombre_comercio' => $comercio['nombre'],
+			'id_cliente' => $cliente['id'],
+			'nombre_cliente' => $cliente['nombre'],
+			'puntos_cargados' => $puntos['puntos']
+		);
+	
+		$this->db->insert('movimientos', $data);		
 	}
 
 }

@@ -69,6 +69,12 @@ class ModelsUsers extends CI_Model
 		return $sql->result();
 	}
 
+	public function getMovements()
+	{		
+		$sql = $this->db->get('movimientos');
+		return $sql->result();
+	}
+
 	public function getUserClient($id){
 		$this->db->join('clientes', 'usuarios.id = clientes.id_usuario');
 		$user = $this->db->get_where('usuarios',array('usuarios.id' => $id),1);

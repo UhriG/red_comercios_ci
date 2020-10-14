@@ -108,6 +108,14 @@
                                 <p>Administradores</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?=base_url('users/list_movements')?>"
+                                class="nav-link <?= $this->uri->segment(2) == 'list_movements'  ? 'active' : ''; ?>"
+                                class="nav-link">
+                                <i class="fas fa-exchange-alt nav-icon"></i>
+                                <p>Movimientos</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <?php endif; ?>
