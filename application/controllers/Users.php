@@ -86,12 +86,14 @@ class Users extends CI_Controller
 				'telefono' => $telefono,
 				'puntos' => 0,
 			];
+
 			$user_info = [
 				'nombre' => $nombre,
 				'apellido' => $apellido,
 				'dni' => $dni,
 				'telefono' => $telefono
 			];
+			
 			///Genero el código QR y retorno la ruta de la imagen
 			$qr = $this->generateQR($cliente['dni']);
 			$qr = str_replace('\\', '/', $qr);			
@@ -152,7 +154,27 @@ class Users extends CI_Controller
 	}	
 
 	public function update(){
-		
+		$id = $this->input->post('id');
+		$nombre = $this->input->post('nombre');
+		$apellido = $this->input->post('apellido');
+		$telefono = $this->input->post('telefono');
+
+		$this->form_validation->set_rules(getUpdateUserRules());		
+		if ($this->form_validation->run() === FALSE) {
+			$vista = $this->load->view('admin/edit_users', '', TRUE);
+			$this->getTemplate($vista);
+		} else {
+			$data = [
+				'nombre' => $nombre,
+				'apellido' => $apellido,
+				'telefono' => $telefono	
+			];
+
+			$this->ModelsUsers->updateUser($id, $data);	
+			$this->session->set_flashdata('msg', 'El usuario ha si actualizado correctamente');
+			redirect('users/list_commerce');
+					
+		}				
 	}
 
 	public function editClient($id = 0){
@@ -164,14 +186,14 @@ class Users extends CI_Controller
 	public function editCommerce($id = 0){
 		$user = $this->ModelsUsers->getUserCommerce($id);
 		
-		$vista = $this->load->view('admin/edit_users', '', TRUE);
+		$vista = $this->load->view('admin/edit_users', array('user' => $user), TRUE);
 		$this->getTemplate($vista);
 	}
 
 	public function editAdmin($id = 0){
 		$user = $this->ModelsUsers->getUserAdmin($id);
 		
-		$vista = $this->load->view('admin/edit_users', '', TRUE);
+		$vista = $this->load->view('admin/edit_users', array('user' => $user), TRUE);
 		$this->getTemplate($vista);
 	}
 

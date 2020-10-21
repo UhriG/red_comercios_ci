@@ -1,5 +1,38 @@
 <?php
 
+if (!function_exists('getUpdateUserRules')) {
+	function getUpdateUserRules(){
+		return [
+			[
+				'field' => 'nombre',
+				'label' => 'nombre',
+				'rules' => 'required',
+				'errors' => [
+					'required' => 'El campo %s no puede ir vacío',
+				],
+			],
+			[
+				'field' => 'apellido',
+				'label' => 'apellido',
+				'rules' => 'required',
+				'errors' => [
+					'required' => 'El campo %s no puede ir vacío',
+				],
+			],
+			[
+				'field' => 'telefono',
+				'label' => 'teléfono',
+				'rules' => 'required|numeric',
+				'errors' => [
+					'required' => 'El campo %s no puede ir vacío',
+					'numeric' => 'Ingrese solo números',
+				],
+			],
+			
+		];
+	}
+}
+
 if (!function_exists('getCreateUserRules')) {
 	function getCreateUserRules()
 	{
